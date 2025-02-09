@@ -4,14 +4,14 @@ steps:
     args:
       - 'build'
       - '--tag'
-      - 'us-central1-docker.pkg.dev/kulwinder-semester2/lab-02/${COMMIT_SHA}'
+      - 'northamerica-northeast2-docker.pkg.dev/kulwinder-semester2/lab-02/${COMMIT_SHA}'
       - '.'
 
   - name: 'gcr.io/cloud-builders/docker'
     id: 'Push Docker image'
     args:
       - 'push'
-      - 'us-central1-docker.pkg.dev/kulwinder-semester2/lab-02/${COMMIT_SHA}'
+      - 'northamerica-northeast2-docker.pkg.dev/kulwinder-semester2/lab-02/${COMMIT_SHA}'
 
 options:
   logging: CLOUD_LOGGING_ONLY
