@@ -1,20 +1,9 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    id: 'Build Docker image'
-    args:
-      - 'build'
-      - '--tag'
-      - 'us-central1-docker.pkg.dev/kulwinder-semester2/lab-02/${COMMIT_SHA}'
-      - '.'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/kulwinder-semester2/kulwinder-100931278/lab-02:${SHORT_SHA}', '.']
 
-  - name: 'gcr.io/cloud-builders/docker'
-    id: 'Push Docker image'
-    args:
-      - 'push'
-      - 'us-central1-docker.pkg.dev/kulwinder-semester2/lab-02/${COMMIT_SHA}'
+images:
+  - 'us-central1-docker.pkg.dev/kulwinder-semester2/kulwinder-100931278/lab-02:${SHORT_SHA}'
 
 options:
-  logging: CLOUD_LOGGING_ONLY
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
-
-timeout: 1200s  # timeout for the build
